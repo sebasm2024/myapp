@@ -1,8 +1,9 @@
-
 import 'package:go_router/go_router.dart';
 
 import 'package:myapp/views/index.dart';
-import 'package:myapp/views/product_detail_view.dart';
+
+
+
 
 
 class AppRoutes {
@@ -26,8 +27,9 @@ final routesConfig = GoRouter(routes: [
     builder: (context, state) => const ProductsListView(),
   ),
   GoRoute(
-    path: AppRoutes.productDetail,
-    builder: (context, state) => const ProductDetailView(),
+    path: '${AppRoutes.productDetail} /:productId',
+    builder: (context, state) =>  ProductDetailView(
+    productId: state.pathParameters['productId'],
+    )
   ),
 ]);
-
