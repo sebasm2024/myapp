@@ -1,96 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:myapp/routes/app_routes.dart';
+import 'package:myapp/widgets/drawer_widget.dart';
 
-
-class ProductDetailView extends StatelessWidget {
-  const ProductDetailView({super.key, String? productId});
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2604290132.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3347687553.
+class ProductDetail extends StatelessWidget {
+  const ProductDetail({super.key, String? productId});
 
   @override
   Widget build(BuildContext context) {
+
+    
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Product Detail View"),
+        title: const Text('Detail'),
+        
       ),
+      drawer:const DrawerWidget(),
+      body: Column (
+ 
+
       
-      body: Column(
         children: [
-          Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image.network(
-                            "https://images.unsplash.com/photo-1707767787271-b00e648a61e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTcxNzYzMTgzMw&ixlib=rb-4.0.3&q=80&w=100",
-                            // height: 200, // Ajusta la altura según tus necesidades
-                            width: 200,
-                            fit: BoxFit.cover,
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2990668884.
-                            errorBuilder: (context, error, stackTrace) => const Center(
-                              child: Text("Error"))
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                "Producto 1",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20.0,
-                                ),
-                              ),
-                              Text(
-                                '\$ ${5.25.toStringAsFixed(2)}', // Formato de precio
-                                style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontSize: 18.0,
-                                ),
-                              ),
-                              Text(
-                                '\$ ${10.toStringAsFixed(2)}', // Formato de precio
-                                style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontSize: 18.0,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(Colors.blue),
-                      ),
-                      onPressed: () => context.push(AppRoutes.createUpdate),
-                      child: const SizedBox(
-                        width: double.infinity,
-                        child: Center(
-                          child: Text(
-                            "Actualizar",
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
+         
+          // Add the image with a fixed height and expanded width
+          Image.network(
+            'https://depor.com/resizer/74xRFDUOOSmvFYqNWDXZta_qoLo=/620x0/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QKI4HBQUOZFZ7MFOKSEDFAJS2I.jpg',
+            height: 290,
+            width: 290,
+            fit: BoxFit.cover,
           ),
+          // Rest of the body content
+          const Center(
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2442098769.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2469057358.
+            child: Text('Segunda equipacion de la seleccion de Ecuador', style: TextStyle(fontSize: 15, fontStyle: FontStyle.italic),),
+             
+          ),
+                   
+                   
+ElevatedButton(
+  onPressed: () {
+    // Acción a realizar cuando se presiona el botón, 
+    // por ejemplo, navegar a una pantalla de pago.
+    
+  },
+  child: const Text('Comprar'),
+),
+
+
+
         ],
       ),
-    );
+   
+
+      );
   }
+
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1528082959.
+// Suggested code may be subject to a l
 }

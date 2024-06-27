@@ -1,35 +1,37 @@
 import 'package:go_router/go_router.dart';
-
-import 'package:myapp/views/index.dart';
-
-
+import 'package:myapp/views/create_update_view.dart';
+import 'package:myapp/views/home_view.dart';
 
 
+import '../views/product_detail_view.dart';
+import '../views/products_list_view.dart';
 
 class AppRoutes {
-    static String home = "/";
-    static String createUpdate = "/create-update";
-    static String productDetail = "/product-detail";
-    static String productsListView = "/product-list-view";
+  static String home="/";
+  static String createUpdate="/create-update";
+  static String productDetail="/product-detail";
+  static String productsList = "/products-list";
 }
-
-final routesConfig = GoRouter(routes: [
-  GoRoute(
-    path: AppRoutes.home,
-    builder: (context, state) => const HomeView(),
+final routesConfig = GoRouter(routes:[
+GoRoute(
+  path:AppRoutes.home,
+  builder: (context, state) => const HomeView(),
+  
+),
+ GoRoute(
+  path:AppRoutes.createUpdate,
+  builder: (context, state) =>  CreateUpdateView(),
+),
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2022152969.
+GoRoute(
+  path:'${AppRoutes.productDetail}/:productId',
+  builder: (context, state) =>  ProductDetail(
+    productId : state.pathParameters['productId'],
   ),
-  GoRoute(
-    path: AppRoutes.createUpdate,
-    builder: (context, state) => const CreateUpdateView(),
-  ),
-  GoRoute(
-    path: AppRoutes.productsListView,
-    builder: (context, state) => const ProductsListView(),
-  ),
-  GoRoute(
-    path: '${AppRoutes.productDetail} /:productId',
-    builder: (context, state) =>  ProductDetailView(
-    productId: state.pathParameters['productId'],
-    )
-  ),
-]);
+),
+GoRoute(
+  path:AppRoutes.productsList,
+  builder: (context, state) => const ProductsList(),
+),
+]
+);

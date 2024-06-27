@@ -10,7 +10,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Home View"),
       ),
-     drawer: const DrawerWidget(),
+      drawer: const DrawerWidget(),
       body: SingleChildScrollView(
         child: Column(
           children: [

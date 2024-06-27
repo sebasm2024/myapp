@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class CustomTileWidget extends StatelessWidget {
-  final IconData lead;
-  final String label;
-  final IconData end;
-  final String route;
-
-  const CustomTileWidget({
+class CustomInputText extends StatelessWidget {
+  const CustomInputText({
     super.key,
-    required this.lead,
-    required this.label,
-    required this.route,
-    this.end = Icons.arrow_right,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Theme.of(context).hoverColor),
-      child: ListTile(
-        leading: Icon(lead),
-        title: Text(label),
-        trailing: Icon(end),
-        onTap: () => context.push(route),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+          label: const Text("Name"),
+          hintText: "Name of the product",
+          helper: const Text(
+            "The name of the product",
+            style: TextStyle(fontSize: 11),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          
+        ),
       ),
     );
   }

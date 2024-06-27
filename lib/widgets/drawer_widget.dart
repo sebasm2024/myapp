@@ -1,29 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/routes/app_routes.dart';
-import 'package:myapp/widgets/custom_tile_widget.dart';
+import 'package:myapp/widgets/cutom_input_product.dart';
+
+
+import '../routes/app_routes.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({super.key});
+  const DrawerWidget( {super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      width: size.width * 0.6,
+      width: size.width * 0.65,
       height: double.infinity,
-      decoration:
-          BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
-      child: Column(
+      color: const Color.fromARGB(255, 255, 255, 255), 
+      child:   Column(
         children: [
-          const SizedBox(height: 35),
-          const Text("Menu"),
-          CustomTileWidget(lead: Icons.home_outlined, label: "Home", route: AppRoutes.home,),
-          CustomTileWidget(lead: Icons.document_scanner_outlined, label: "List", route: AppRoutes.productsListView,),
-          CustomTileWidget(lead: Icons.find_in_page_outlined, label: "Detail", route: AppRoutes.productDetail,),
-          CustomTileWidget(lead: Icons.add_outlined, label: "Create", route: AppRoutes.createUpdate,),
-          
-        ],
-      ),
+          SizedBox(height: 35),
+          Text("menu"),
+
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1865800294.
+          CustomTitleWidget(lead: Icons.home_max, label: 'home', end: Icons.arrow_right_alt_outlined, route: AppRoutes.home,),
+          CustomTitleWidget(lead: Icons.document_scanner, label: 'list', end: Icons.arrow_right_alt_outlined, route: AppRoutes.productsList,),
+          CustomTitleWidget(lead: Icons.find_in_page, label: 'detail', end: Icons.arrow_right_alt_outlined, route: AppRoutes.productDetail,),
+          CustomTitleWidget(lead: Icons.add_circle_outline , label: "create", end: Icons.arrow_right, route: AppRoutes.createUpdate,)
+       ] )
+        
+    
     );
+    
   }
 }
